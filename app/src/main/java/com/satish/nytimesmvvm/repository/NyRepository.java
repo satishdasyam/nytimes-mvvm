@@ -18,7 +18,7 @@ import java.util.concurrent.Executors;
 
 public class NyRepository {
 
-    public static final String TAG = NyRepository.class.getSimpleName();
+    private static final String TAG = NyRepository.class.getSimpleName();
 
     private final ApiHelper apiHelper;
     private final NyDao nyDao;

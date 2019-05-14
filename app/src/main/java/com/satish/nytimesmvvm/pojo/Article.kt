@@ -6,16 +6,16 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "article_table")
-class Article {
+data class Article (
     @PrimaryKey(autoGenerate = true)
-    var id: Int = 0
+    var id: Int = 0,
     @Expose
     @SerializedName("title")
-    var title: String = ""
+    var title: String = "",
     @Expose
     @SerializedName("abstract")
-    var abstract: String = ""
+    var abstract: String = "",
     @Expose
     @SerializedName("thumbnail_standard")
     var thumbnailUrl: String = ""
-}
+)
