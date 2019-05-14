@@ -23,13 +23,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        init()
+        setRecyclerView()
+        setObservers()
+    }
+
+    private fun init() {
         val nyTimesApp = application as NyTimesApp
         nyTimesApp.networkComponent.injectMainActivity(this)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         articleViewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(ArticleViewModel::class.java)
-        setRecyclerView()
-        setObservers()
     }
 
     private fun setRecyclerView() {
@@ -46,5 +50,15 @@ class MainActivity : AppCompatActivity() {
     private fun setObservers() {
         articleViewModel.getArticleList()?.observe(this,
             Observer<List<Article>> { t -> t?.let { articleListAdapter.addArtistList(it) } })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        articleViewModel.openConnection()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        articleViewModel.closeConnection()
     }
 }

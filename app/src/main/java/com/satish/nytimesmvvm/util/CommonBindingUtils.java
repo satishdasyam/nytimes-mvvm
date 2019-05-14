@@ -21,7 +21,7 @@ public final class CommonBindingUtils {
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .format(DecodeFormat.PREFER_ARGB_8888))
                 .load(url)
-                .thumbnail(0.1f)
+                //.thumbnail(0.1f)
                 .into(imageView);
     }
 }

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.satish.nytimesmvvm.databinding.ArticleItemBinding
 import com.satish.nytimesmvvm.pojo.Article
 
+
 class ArticleListAdapter : RecyclerView.Adapter<ArticleListAdapter.ArticleViewHolder>() {
 
     private val dataList = mutableListOf<Article>()

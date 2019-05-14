@@ -10,7 +10,8 @@ class ArticleViewModel @Inject
 constructor(private val nyRepository: NyRepository) : ViewModel() {
 
     init {
-        nyRepository.fetchArticleMetadata()
+        //nyRepository.fetchArticleMetadata()
+        //nyRepository.getStreamingData()
     }
 
     fun getArticleList(): LiveData<MutableList<Article>>? {
@@ -20,5 +21,13 @@ constructor(private val nyRepository: NyRepository) : ViewModel() {
     override fun onCleared() {
         super.onCleared()
         nyRepository.onClear()
+    }
+
+    fun openConnection() {
+        nyRepository.openSSEConnection()
+    }
+
+    fun closeConnection() {
+        nyRepository.closeConnection()
     }
 }

@@ -52,7 +52,7 @@
                     android:paddingEnd="@dimen/twelve_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{article.abstract}"
+                    android:text="@{article.articleAbstract}"
                     tools:text="abstract"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

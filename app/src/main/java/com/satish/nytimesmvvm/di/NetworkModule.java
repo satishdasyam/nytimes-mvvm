@@ -3,7 +3,6 @@ package com.satish.nytimesmvvm.di;
 import android.app.Application;
 import android.content.Context;
 import androidx.room.Room;
-import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.satish.nytimesmvvm.BuildConfig;
 import com.satish.nytimesmvvm.repository.NyRepository;
@@ -11,10 +10,8 @@ import com.satish.nytimesmvvm.repository.local.AppDatabase;
 import com.satish.nytimesmvvm.repository.remote.ApiHelper;
 import dagger.Module;
 import dagger.Provides;
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import javax.inject.Singleton;
 
@@ -34,9 +31,7 @@ public class NetworkModule {
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(interceptor).build();*/
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BuildConfig.BASE_URL).
-                addConverterFactory(GsonConverterFactory
-                        .create(new GsonBuilder()
-                                .excludeFieldsWithoutExposeAnnotation().create()))
+                addConverterFactory(JacksonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 //.client(client)
                 .build();
