@@ -9,4 +9,4 @@ ViewModel - Which is a bridge between repository and view
 
 Activity - Observes the data changes and renders UI
 
-Used nytimes API using 'server sent event' for real time data with delay of max 30 seconds without poll  
+Used nytimes API using 'server-sent event' for real time data with delay of max 30 seconds without poll  
