@@ -21,10 +21,11 @@
             app:cardCornerRadius="4dp"
             app:cardUseCompatPadding="true"
             app:contentPadding="@dimen/eight_dp"
+            app:cardBackgroundColor="@android:color/white"
             android:foreground="?android:attr/selectableItemBackground">
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
             <ImageView
                     android:id="@+id/iv_thumbnail"

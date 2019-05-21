@@ -13,11 +13,11 @@ public class Article {
     @PrimaryKey(autoGenerate = true)
     private int id = 0;
     @JsonProperty("title")
-    private String title = "";
+    private String title ;
     @JsonProperty("abstract")
-    private String articleAbstract = "";
+    private String articleAbstract;
     @JsonProperty("thumbnail_standard")
-    private String thumbnailUrl = "";
+    private String thumbnailUrl;
 
     public int getId() {
         return id;

@@ -13,6 +13,7 @@ import dagger.Provides;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 @Module
@@ -46,13 +47,14 @@ public class NetworkModule {
 
     @Provides
     @Singleton
+    @Named("ApplicationContext")
     Context providesContext() {
         return appContext;
     }
 
     @Provides
     @Singleton
-    AppDatabase providesAppDatabase(Context context) {
+    AppDatabase providesAppDatabase(@Named("ApplicationContext") Context context) {
         return Room.databaseBuilder(context,
                 AppDatabase.class, "articles").build();
     }
